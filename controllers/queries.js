@@ -5,7 +5,9 @@ const jwt        = require('jwt-simple')
 const config     = require('../config/config')
 const User       = require('../models/users')
 const Projects   = require('../models/projects')
-const sequelize  = new Sequelize('postgres://localhost:5432/')
+const local     = 'postgres://localhost:5432/'
+const prod      =  process.env.DATABASE_URL
+const sequelize = new Sequelize(process.env.NODE_ENV === 'staging' ? prod : local)
 
 // TOKEN
 function tokenForUser(user){
