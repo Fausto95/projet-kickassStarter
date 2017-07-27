@@ -8,7 +8,7 @@ import swal from 'sweetalert2'
 
 class Dashboard extends Component{
   componentDidMount(){
-    axios.get(`${ROOT_URL}/myprojects/${this.props.routeParams.id}`, {  headers: { authorization: localStorage.getItem('token') } })
+    axios.get(`/myprojects/${this.props.routeParams.id}`, {  headers: { authorization: localStorage.getItem('token') } })
       .then(response =>{        
         //console.log('the response',  response )
         this.props.fetchProjects(response)

@@ -57,7 +57,7 @@ class ModalAdd extends Component {
 
   submitProject = (e) => {
     e.preventDefault();
-    axios.post(`${ROOT_URL}/createproject`, {
+    axios.post(`/createproject`, {
       name: this.state.Name,
       description: this.state.Description,
       userId: this.props.user.userId,

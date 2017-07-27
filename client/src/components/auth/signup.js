@@ -119,7 +119,7 @@ function mapDispatchToProps(dispatch) {
   return {
     UserSignUp (results) {
     	//console.log('the results',results)
-        axios.post(`${ROOT_URL}/signup`, { firstName: results.firstName, lastName: results.lastName, email: results.email, password: results.password, function: results.role })
+        axios.post(`/signup`, { firstName: results.firstName, lastName: results.lastName, email: results.email, password: results.password, function: results.role })
             .then(response =>{
             	console.log('the response', response)
                 localStorage.setItem('user', JSON.stringify(response.data.user))

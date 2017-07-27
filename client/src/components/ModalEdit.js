@@ -70,7 +70,7 @@ class ModalEdit extends Component {
       upvotes: this.state.UpVotes,
       downvotes: this.state.DownVotes,
     }
-    axios.post(`${ROOT_URL}/editproject/${e}`, obj)
+    axios.post(`/editproject/${e}`, obj)
       .then(response => {
         this.props.editProject(e, response.data)
         swal('Nice!', 'Project Add', 'success')

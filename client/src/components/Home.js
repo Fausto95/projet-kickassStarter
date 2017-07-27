@@ -8,7 +8,7 @@ import Footer from './footer'
 class Welcome extends Component{
 	componentDidMount(){
 		this.props.fetchProjects()
-		axios.get(`${ROOT_URL}/projects/`)
+		axios.get(`/projects/`)
       		.then(response =>{        
         		//console.log('the response projects',  response )
         		this.props.Projects(response.data.projects)
