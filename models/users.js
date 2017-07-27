@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('postgres://localhost:5432/')
+const local     = 'postgres://localhost:5432/'
+const prod      =  process.env.DATABASE_URL
+const sequelize = new Sequelize(process.env.NODE_ENV === 'staging' ? prod : local)
 require('sequelize-isunique-validator')(Sequelize);
 module.exports  = sequelize.define('user', {
     userId:{
