@@ -52,7 +52,7 @@ function createUser(req, res, next) {
 }
 
 function createProject(req, res, next){
-  Project.sync({ force: true }).then(() => {
+  Projects.sync({ force: true }).then(() => {
     Projects.create({
       Name: req.body.name,
       Description: req.body.description,
