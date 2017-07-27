@@ -34,12 +34,11 @@ function login(req, res, next){
 function createUser(req, res, next) {
   /// can verify if pass empty in here
 
-  // User.findOne({where: { email: req.body.email}})
-  // .then((user) => {
-  //   if(user){
-  //     return res.status(422).json({ error: 'Email Already in use'})
-  //   }
-  User.sync({ froce: true}).then(() => {
+  User.findOne({where: { email: req.body.email}})
+  .then((user) => {
+    if(user){
+      return res.status(422).json({ error: 'Email Already in use'})
+    }
     return User.create({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
@@ -48,11 +47,12 @@ function createUser(req, res, next) {
       function: req.body.function
     })
   })
-  // .then(user => res.status(200).json({ status: 'success', message: 'Inserted one user', token: tokenForUser(user), user: user}))
-  // //.catch(err =>res.send({error: 'Email Already in use'}))
+  .then(user => res.status(200).json({ status: 'success', message: 'Inserted one user', token: tokenForUser(user), user: user}))
+  //.catch(err =>res.send({error: 'Email Already in use'}))
 }
 
 function createProject(req, res, next){
+  Project.sync({ force: true }).then(() => {
     Projects.create({
       Name: req.body.name,
       Description: req.body.description,
@@ -64,8 +64,9 @@ function createProject(req, res, next){
       UpVotes: req.body.upvotes,
       DownVotes: req.body.downvotes
     })
-    .then(project => res.status(200).json({ status: 'success', message: 'Inserted one project', project: project }))
-    .catch(err => res.send(err))
+  })
+    // .then(project => res.status(200).json({ status: 'success', message: 'Inserted one project', project: project }))
+    // .catch(err => res.send(err))
 
 }
 
