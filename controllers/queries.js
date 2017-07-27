@@ -52,8 +52,7 @@ function createUser(req, res, next) {
 }
 
 function createProject(req, res, next){
-  Projects.sync({ force: true }).then(() => {
-    return Projects.create({
+    Projects.create({
       Name: req.body.name,
       Description: req.body.description,
       userId: req.body.userId,
@@ -64,9 +63,8 @@ function createProject(req, res, next){
       UpVotes: req.body.upvotes,
       DownVotes: req.body.downvotes
     })
-  })
-    // .then(project => res.status(200).json({ status: 'success', message: 'Inserted one project', project: project }))
-    // .catch(err => res.send(err))
+    .then(project => res.status(200).json({ status: 'success', message: 'Inserted one project', project: project }))
+    .catch(err => res.send(err))
 
 }
 

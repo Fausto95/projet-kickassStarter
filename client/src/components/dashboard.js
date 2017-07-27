@@ -34,7 +34,7 @@ class Dashboard extends Component{
         cancelButtonClass: 'btn btn-danger',
         buttonsStyling: false
       }).then(function () {
-        axios.delete(`${ROOT_URL}/deleteproject/${e}`)
+        axios.delete(`/deleteproject/${e}`)
           .then(result =>{
             //console.log('DELETEDD', result)
             theThis.props.deleteProject(e)
