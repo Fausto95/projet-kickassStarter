@@ -30,7 +30,7 @@ app.use(morgan('combined'))
 app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(express.static(path.join(__dirname, '../client/build/')))
+app.use(express.static(path.join(__dirname, 'client/build/')))
 router(app)
 
 
