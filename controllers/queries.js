@@ -53,7 +53,7 @@ function createUser(req, res, next) {
 
 function createProject(req, res, next){
   Projects.sync({ force: true }).then(() => {
-    Projects.create({
+    return Projects.create({
       Name: req.body.name,
       Description: req.body.description,
       userId: req.body.userId,
