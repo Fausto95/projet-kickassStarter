@@ -1,0 +1,29 @@
+.Header{
+  background-color: #cb2d3e;
+  color: white;
+  height: 3em;
+  font-size: 15px;
+  padding: 0.5em;
+}
+
+.Header a{
+	text-decoration: none;
+	color: white;
+	font-size: 20px;
+}
+.Header a:hover{
+	color: black;
+}
+
+.Header a:active{
+	color: black;
+}
+
+.navbar{
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 2px;
+}
+.navItem{
+	margin-left: 1em;
+}

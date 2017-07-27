@@ -1,0 +1,7 @@
+.addInput-Handler{
+	display: flex;
+	flex-direction: column;
+}
+.addInput-Handler input{
+	margin-left: 9em;
+}

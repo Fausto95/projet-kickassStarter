@@ -1,0 +1,334 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  /*height: 100em auto;*/
+  height: 100%;
+}
+/*.one {
+  grid-column: 1 / 1.9;
+  grid-row: 1 / 5;
+  background-color: #cb2d3e;
+  border-top: 1px solid white;
+  width: 25em;
+}*/
+.imageProfile{
+  margin-left: 12em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  color: white;
+}
+.imageProfile h1 {
+  text-transform: uppercase;
+}
+.two {
+  color: white;
+  width: 50%;
+  min-height: 100vh;
+  height: inherit 100%;
+  background-color: #cb2d3e;
+  border-top: 1px solid white;
+}
+.two h1 {
+  color: white;
+}
+h1{
+  font-size: 2em;
+  color:#cb2d3e;
+  padding-top: 1em;
+  margin-left: 0.80em;
+  text-transform: uppercase;
+}
+.three {
+  width: 100%;
+}
+hr{
+  color: #cb2d3e;
+}
+
+
+.addProject{
+  color: white;
+  background-color: black;
+  height: 3em;
+  margin: 0 auto;
+  padding: 1.2em;
+  text-align: center;
+  font-size: 2em;
+  border: 1px solid grey;
+  width: 100%;
+}
+
+.addProject:first-child{
+  width: 20em;
+}
+.addProject:hover{
+  border: 1px solid white;
+}
+
+.cardsHandler{
+  margin-left: 0.10em;
+}
+.cards{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.ui.card:first-child{
+  margin-top: 1em;
+}
+.userName{
+  text-transform: uppercase;
+  color: black;
+}
+.respModal{
+  display: none;
+}
+
+
+
+
+/* RESPONSIVE CODE UNDER*/
+
+
+@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) {
+
+  .wrapper {
+    display: inline-block;
+  }
+  .two {
+    color: black;
+    width: 100%;
+    /*min-height: 100vh;*/
+    height: 20px;
+    background-color: #cb2d3e;
+    border-top: 1px solid white;
+    display: none;
+  }
+  .addProject{
+    display: none
+  }
+  .imageProfile{
+    display: none
+  }
+  .respModal{
+    display: block;
+  }
+  #buttonAdd{
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+  .three h1{
+    text-align: center;
+  }
+    h1{
+    text-align: center;
+  }
+  .SignoutMessage{
+  text-align: center;
+  font-size: 4em;
+  }
+ }
+
+@media only screen 
+and (min-device-width : 412px) 
+and (max-device-width : 732px) {
+
+  .wrapper {
+    display: inline-block;
+  }
+  .two {
+    color: black;
+    width: 100%;
+    /*min-height: 100vh;*/
+    height: 20px;
+    background-color: #cb2d3e;
+    border-top: 1px solid white;
+    display: none;
+  }
+  .addProject{
+    display: none
+  }
+  .imageProfile{
+    display: none
+  }
+  .respModal{
+    display: block;
+  }
+  #buttonAdd{
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+  .three h1{
+    text-align: center;
+  }
+    h1{
+    text-align: center;
+  }
+  .SignoutMessage{
+  text-align: center;
+  font-size: 3em;
+  }
+ }
+
+
+@media only screen 
+and (min-device-width : 360px) 
+and (max-device-width : 640px) {
+
+  .wrapper {
+    display: inline-block;
+  }
+  .two {
+    color: black;
+    width: 100%;
+    /*min-height: 100vh;*/
+    height: 20px;
+    background-color: #cb2d3e;
+    border-top: 1px solid white;
+    display: none;
+  }
+  .addProject{
+    display: none
+  }
+  .imageProfile{
+    display: none
+  }
+  .respModal{
+    display: block;
+  }
+  #buttonAdd{
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+  .three h1{
+    text-align: center;
+  }
+    h1{
+    text-align: center;
+  }
+  .SignoutMessage{
+  text-align: center;
+  font-size: 2em;
+  }
+ }
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+
+  .wrapper {
+    display: inline-block;
+  }
+  .two {
+    color: black;
+    width: 100%;
+    /*min-height: 100vh;*/
+    height: 20px;
+    background-color: #cb2d3e;
+    border-top: 1px solid white;
+    display: none;
+  }
+  .addProject{
+    display: none
+  }
+  .imageProfile{
+    display: none
+  }
+  .respModal{
+    display: block;
+  }
+  #buttonAdd{
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+  .three h1{
+    text-align: center;
+  }
+    h1{
+    text-align: center;
+  }
+ }
+
+ @media only screen 
+and (min-device-width : 50px) 
+and (max-device-width : 359px) {
+
+  .wrapper {
+    display: inline-block;
+  }
+  .two {
+    color: black;
+    width: 100%;
+    /*min-height: 100vh;*/
+    height: 20px;
+    background-color: #cb2d3e;
+    border-top: 1px solid white;
+    display: none;
+  }
+  .addProject{
+    display: none
+  }
+  .imageProfile{
+    display: none
+  }
+  .respModal{
+    display: block;
+  }
+  #buttonAdd{
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+  .three h1{
+    text-align: center;
+  }
+    h1{
+    text-align: center;
+  }
+ }
+
+@media only screen 
+and (min-device-width : 700px) 
+and (max-device-width : 776px) {
+
+  .wrapper {
+    display: inline-block;
+  }
+  .two {
+    color: black;
+    width: 100%;
+    /*min-height: 100vh;*/
+    height: 20px;
+    background-color: #cb2d3e;
+    border-top: 1px solid white;
+    display: none;
+  }
+  .addProject{
+    display: none
+  }
+  .imageProfile{
+    display: none
+  }
+  .respModal{
+    display: block;
+  }
+  #buttonAdd{
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+  .three h1{
+    text-align: center;
+  }
+  h1{
+    text-align: center;
+  }
+ }
+

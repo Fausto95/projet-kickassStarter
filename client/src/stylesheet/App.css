@@ -1,0 +1,30 @@
+.SignoutMessage{
+	text-align: center;
+	font-size: 8em;
+}
+ .mySlides {
+	display:none;
+	height: 30em;
+	width: 100%;
+
+} 
+ .slide{
+	width: 70%;
+	height: 30em;
+	margin: 0 auto;
+	margin-top:1em;
+	border-radius: 1em;
+}
+
+ .content{
+	width: 88%;
+	margin: 0 auto;
+	
+}
+
+.footer-Handler{
+	width: 30%;
+	margin: 0 auto;
+	text-align: center;
+	margin-bottom: 1%;
+}
