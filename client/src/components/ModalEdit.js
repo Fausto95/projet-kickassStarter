@@ -61,7 +61,7 @@ class ModalEdit extends Component {
     let obj = {
       //id: this.props.id,
       name: this.state.Name,
-      nescription: this.state.Description,
+      description: this.state.Description,
       userId: this.props.user.userId,
       img: this.state.imageLink,
       pledged: this.state.Pledged,
