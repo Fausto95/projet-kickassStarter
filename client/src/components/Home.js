@@ -64,7 +64,8 @@ class Welcome extends Component{
   }
   recentProjects(){
     	if(this.props.projects){
-    		let projects = this.props.projects
+				let projects = this.props.projects
+				let voteButton
 	      return <div className="cards">{
 	      	projects
 	      	.filter(project => new Date(project.createdAt).setHours(0, 0, 0, 0) > new Date('2017-07-10T19:54:55.200Z').setHours(0, 0, 0, 0) && new Date(project.createdAt).setHours(0, 0, 0, 0) <= new Date().setHours(0,0,0,0))
@@ -86,8 +87,12 @@ class Welcome extends Component{
 	                  </div>
 	                  <div className="extra content">
 	                    <a>
-	                      <i className="user icon"></i>
-	                      {this.props.user !== null && project.userId !== this.props.user.userId ? <button className="ui blue button" >Join</button> : '22 Friends'}
+												<i className="user icon"></i>
+												{ 
+													project.votes.some(vote => vote.userId === this.props.user.userId) ? <button className="buttonVote"><i className="thumbs down icon"></i></button> : <button className="buttonVote"><i className="thumbs up icon"></i></button>													
+												}
+												<p>{project.votes.length} votes</p>
+	                      {/*this.props.user !== null && project.userId !== this.props.user.userId ? <button className="ui blue button" >Join</button> : '22 Friends'*/}
 	                    </a>
 	                  </div>
 	              </div>
@@ -100,7 +105,7 @@ class Welcome extends Component{
 		let trendingProjects = this.trendingProjects()
 		let recentProjects = this.recentProjects()
 		let slides = this.slide()
-		//console.log('home props', this.props)
+		console.log('home props', this.props)
 		return (
 			<div>
 				{slides}
