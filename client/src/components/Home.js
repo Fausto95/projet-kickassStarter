@@ -35,7 +35,7 @@ class Welcome extends Component{
 	      	projects
 	      	.filter(project => project.Pledged >= 800)
 	      	.map(project => {
-	        return <div className="ui card" key={projects.id}>
+	        return <div className="ui card" key={projects.projectId}>
 	                  <div className="image">
 	                    <img src={project.imageLink}/>
 	                  </div>
@@ -69,7 +69,7 @@ class Welcome extends Component{
 	      	projects
 	      	.filter(project => new Date(project.createdAt).setHours(0, 0, 0, 0) > new Date('2017-07-10T19:54:55.200Z').setHours(0, 0, 0, 0) && new Date(project.createdAt).setHours(0, 0, 0, 0) <= new Date().setHours(0,0,0,0))
 	      	.map(project => {
-	        return <div className="ui card" key={projects.id}>
+	        return <div className="ui card" key={projects.projectId}>
 	                  <div className="image">
 	                    <img src={project.imageLink}/>
 	                  </div>

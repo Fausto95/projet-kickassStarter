@@ -16,8 +16,10 @@ module.exports = function(app){
     app.post('/signin', requireSignIn, db.login)
     app.post('/signup', db.createUser)
     app.post('/createproject', db.createProject)
-    app.delete('/deleteproject/:id', db.deleteProject)
-    app.post('/editproject/:id', db.editProject)
+    app.delete('/deleteproject/:projectId', db.deleteProject)
+    app.post('/editproject/:projectId', db.editProject)
+    app.post('/vote', db.addVote)
+    app.delete('/deletevote/:userId', db.deleteVote)
     app.get('/*',  (req, res) =>{
         res.sendFile(path.join(__dirname, '../client/build/'));
         // res.send({ message: 'Hi, if u out here, is cuz u are auth'}) 

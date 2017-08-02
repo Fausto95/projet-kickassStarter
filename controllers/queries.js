@@ -5,9 +5,10 @@ const jwt        = require('jwt-simple')
 const config     = require('../config/config')
 const User       = require('../models/users')
 const Projects   = require('../models/projects')
-const local     = 'postgres://localhost:5432/'
-const prod      =  process.env.DATABASE_URL
-const sequelize = new Sequelize(process.env.NODE_ENV === 'staging' ? prod : local)
+const Votes    = require('../models/votes')
+const local      = 'postgres://localhost:5432/'
+const prod       =  process.env.DATABASE_URL
+const sequelize  = new Sequelize(process.env.NODE_ENV === 'staging' ? prod : local)
 
 // TOKEN
 function tokenForUser(user){
@@ -59,13 +60,10 @@ function createProject(req, res, next){
       imageLink: req.body.img,
       Pledged: req.body.pledged,
       Goals: req.body.goals,
-      Deadline: req.body.deadline,
-      UpVotes: req.body.upvotes,
-      DownVotes: req.body.downvotes
+      Deadline: req.body.deadline
     })
     .then(project => res.status(200).json({ status: 'success', message: 'Inserted one project', project: project }))
     .catch(err => res.send(err))
-
 }
 
 
@@ -73,7 +71,7 @@ function createProject(req, res, next){
 function deleteProject(req, res, next){
   Projects.destroy({
     where: {
-      id: req.params.id
+      projectId: req.params.projectId
     }
   })
   .then(project => res.send({ message: `the project ${project.name} was deleted`, project: project}))
@@ -81,7 +79,13 @@ function deleteProject(req, res, next){
 }
 
 function getProjects(req, res, next){
-  Projects.findAll()
+  Projects.hasMany(Votes, { foreignKey: 'projectId'})
+  Votes.belongsTo(Projects, { foreignKey: 'projectId'})
+
+  Projects.findAll({
+  include: [
+    { model: Votes }
+  ]})
   .then(projects => res.status(200).json({ status: 'success', message: 'Projects Gotten', projects: projects }))
   .catch(err => res.send(err))
 }
@@ -105,7 +109,7 @@ function getUserProjects(req, res, next){
 function editProject(req, res, next){
   Projects.find({
     where: {
-      id: req.params.id
+      projectId: req.params.projectId
     }
   })
   .then(project => 
@@ -116,12 +120,30 @@ function editProject(req, res, next){
       imageLink: req.body.img,
       Pledged: req.body.pledged,
       Goals: req.body.goals,
-      Deadline: req.body.deadline,
-      UpVotes: req.body.upvotes,
-      DownVotes: req.body.downvotes
+      Deadline: req.body.deadline
     }))
   .then(response => res.send(response))
   .catch(err => res.send(err))
+}
+
+function addVote(req, res, next){
+  Votes.create({
+      projectId: req.body.projectId,
+      userName: req.body.userName,
+      userId: req.body.userId
+  })
+    .then(vote => console.log('up voted', vote))
+    .catch(err => console.log(err))
+}
+
+function deleteVote(req, res, next){
+  Votes.destroy({
+      where: {
+        userId: req.params.userId
+      }
+  })
+    .then(success => console.log('Unvoted Up', sucess))
+    .catch(err => console.log(err))
 }
 
 module.exports = {
@@ -132,6 +154,8 @@ module.exports = {
   deleteProject: deleteProject,
   getProjects: getProjects,
   getUserProjects: getUserProjects,
+  addVote: addVote,
+  deleteVote: deleteVote,
   // updateUser: updateUser,
   // removeUser: removeUser
   editProject: editProject,

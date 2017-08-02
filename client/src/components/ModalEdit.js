@@ -9,15 +9,13 @@ class ModalEdit extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      id: this.props.id,
+      projectId: this.props.projectId,
       Name: this.props.Name,
       Description: this.props.Description,
       imageLink: this.props.imageLink,
       Pledged: this.props.Pledged,
       Goals: this.props.Goals,
       Deadline: this.props.Deadline,
-      UpVotes: this.props.UpVotes,
-      DownVotes: this.props.DownVotes,
       modal: false
 
     }
@@ -67,8 +65,6 @@ class ModalEdit extends Component {
       pledged: this.state.Pledged,
       goals: this.state.Goals,
       deadline: this.state.Deadline,
-      upvotes: this.state.UpVotes,
-      downvotes: this.state.DownVotes,
     }
     axios.post(`/editproject/${e}`, obj)
       .then(response => {
@@ -103,7 +99,7 @@ class ModalEdit extends Component {
     </Modal.Content>
     <Modal.Actions>
       <Button primary className="negative ui button" onClick={this.modalClose}>Cancel</Button>
-      <Button primary onClick={this.submitProject.bind(this, this.props.id)}>
+      <Button primary onClick={this.submitProject.bind(this, this.props.projectId)}>
         Save <Icon name='checkmark'/>
       </Button>
     </Modal.Actions>

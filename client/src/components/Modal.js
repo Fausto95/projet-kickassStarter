@@ -15,8 +15,6 @@ class ModalAdd extends Component {
       Pledged: 0,
       Goals: 0,
       Deadline: 0,
-      UpVotes: '{0}',
-      DownVotes: '{0}',
       modal: false
 
     }
@@ -65,8 +63,6 @@ class ModalAdd extends Component {
       pledged: this.state.Pledged,
       goals: this.state.Goals,
       deadline: this.state.Deadline,
-      upvotes: this.state.UpVotes,
-      downvotes: this.state.DownVotes,
     })
       .then(response => {
         console.log('POSTED', response)

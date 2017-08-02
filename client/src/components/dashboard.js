@@ -62,7 +62,7 @@ class Dashboard extends Component{
     const user = JSON.parse(localStorage.getItem('user'))
     if(this.props.projects && this.props.user.userId === user.userId){
       return <div className="cards" >{this.props.projects.projects.map(project => {
-        return <div className="ui card" key={project.id}>
+        return <div className="ui card" key={project.projectId}>
                   <div className="image">
                     <img src={project.imageLink}/>
                   </div>
@@ -78,7 +78,7 @@ class Dashboard extends Component{
                     </div>
                   </div>
                   <div className="extra content">
-                    <button className="ui red button" onClick={this.deleteProject.bind(this, project.id)}>Delete</button>
+                    <button className="ui red button" onClick={this.deleteProject.bind(this, project.projectId)}>Delete</button>
                     <ModalEdit {...project}/>
                   </div>
               </div>
