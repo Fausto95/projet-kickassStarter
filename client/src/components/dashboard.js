@@ -102,8 +102,8 @@ class Dashboard extends Component{
               <h1>{this.props.user ? this.props.user.firstName : ''}</h1>
             </div>
             <Modal/>
-            <div className="addProject">Some Desc Otw</div>
-            <div className="addProject">Some Desc Otw</div>
+            <div className="addProject">Contributing</div>
+            <div className="addProject">Other Features</div>
           </div>
           <div className="three">
             <h1> Dashboard </h1>

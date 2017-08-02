@@ -41,6 +41,7 @@ class SignIn extends Component{
         //console.log(this.state.email)
         return(
             <div className="signin-Handler">
+                <h1>Sign In</h1>
                 <form className="signin-form" onSubmit={this.handleFormSubmit}>
                         <label> Email </label>
                         <div className="ui input focus">

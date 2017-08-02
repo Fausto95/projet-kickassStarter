@@ -102,9 +102,9 @@ class ModalEdit extends Component {
       </Modal.Description>
     </Modal.Content>
     <Modal.Actions>
-      <Button primary className="negative ui button" onClick={this.modalClose}>Quit</Button>
+      <Button primary className="negative ui button" onClick={this.modalClose}>Cancel</Button>
       <Button primary onClick={this.submitProject.bind(this, this.props.id)}>
-        Send <Icon name='checkmark'/>
+        Save <Icon name='checkmark'/>
       </Button>
     </Modal.Actions>
   </Modal>
