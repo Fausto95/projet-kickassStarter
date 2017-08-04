@@ -147,6 +147,22 @@ function deleteVote(req, res, next){
     .catch(err => console.log(err))
 }
 
+
+function createProjectDB(req, res, next){
+  Project.sync({ force: true}).then(() => {
+    return Projects.create({
+      Name: req.body.name,
+      Description: req.body.description,
+      userId: req.body.userId,
+      imageLink: req.body.img,
+      Pledged: req.body.pledged,
+      Goals: req.body.goals,
+      Deadline: req.body.deadline
+    })})
+    .then(project => res.status(200).json({ status: 'success', message: 'Inserted one project and db created', project: project }))
+    .catch(err => res.send(err))
+}
+
 module.exports = {
   getAllUsers: getAllUsers,
   // getSingleUser: getSingleUser,
@@ -157,6 +173,7 @@ module.exports = {
   getUserProjects: getUserProjects,
   addVote: addVote,
   deleteVote: deleteVote,
+  createDBProjects: createProjectDB,
   // updateUser: updateUser,
   // removeUser: removeUser
   editProject: editProject,

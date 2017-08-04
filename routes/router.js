@@ -20,6 +20,7 @@ module.exports = function(app){
     app.post('/editproject/:projectId', db.editProject)
     app.post('/vote', db.addVote)
     app.delete('/deletevote/:userId/:projectId', db.deleteVote)
+    app.post('/createdb', db.createDBProjects)
     app.get('/*',  (req, res) =>{
         res.sendFile(path.join(__dirname, '../client/build/'));
         // res.send({ message: 'Hi, if u out here, is cuz u are auth'}) 
