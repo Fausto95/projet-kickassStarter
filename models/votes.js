@@ -16,7 +16,6 @@ module.exports  = sequelize.define('votes', {
         type: Sequelize.STRING
     },
     userId: {
-        type: Sequelize.INTEGER,
-        unique: true
+        type: Sequelize.INTEGER
     }
 })

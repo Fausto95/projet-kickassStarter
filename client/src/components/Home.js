@@ -70,7 +70,7 @@ class Welcome extends Component{
 	      	projects
 	      	.filter(project => new Date(project.createdAt).setHours(0, 0, 0, 0) > new Date('2017-07-10T19:54:55.200Z').setHours(0, 0, 0, 0) && new Date(project.createdAt).setHours(0, 0, 0, 0) <= new Date().setHours(0,0,0,0))
 	      	.map(project => {
-	        return <div className="ui card" key={projects.projectId}>
+	        return <div className="ui card" key={project.projectId}>
 	                  <div className="image">
 	                    <img src={project.imageLink}/>
 	                  </div>
@@ -89,9 +89,9 @@ class Welcome extends Component{
 	                    <a>
 												<i className="user icon"></i>
 												{ 
-													project.votes.some(vote => vote.userId === this.props.user.userId) ? <button className="buttonVote"><i className="thumbs down icon"></i></button> : <button className="buttonVote"><i className="thumbs up icon"></i></button>													
+													project.votes.some(vote => vote.userId === this.props.user.userId) ? <button className="buttonVote" onClick={this.deleteVote.bind(this, ({projectId: project.projectId, userId: this.props.user.userId, userName: this.props.user.firstName}))}><i className="thumbs down icon"></i></button> : <button className="buttonVote" onClick={this.vote.bind(this, ({projectId: project.projectId, userId: this.props.user.userId, userName: this.props.user.firstName}))}><i className="thumbs up icon"></i></button>													
 												}
-												<p>{project.votes.length} votes</p>
+												<p>{project.votes.length / 100 }% votes</p>
 	                      {/*this.props.user !== null && project.userId !== this.props.user.userId ? <button className="ui blue button" >Join</button> : '22 Friends'*/}
 	                    </a>
 	                  </div>
@@ -100,7 +100,20 @@ class Welcome extends Component{
 	    	} else{
 	      		console.log('ko')
 	    } 
-  }
+	}
+	vote(obj){
+		this.props.addVote(obj)
+		//this.props.Projects(this.props.projects)
+		axios.post('/vote', obj)
+		.then(succes => console.log('succes', succes))
+		.catch(err => console.log(err))
+	}
+	deleteVote(obj){
+		this.props.deleteVote(obj)
+		axios.delete(`/deletevote/${obj.userId}/${obj.projectId}`)
+		.then(deleted => console.log('deleted', deleted))
+		.catch(err => console.log(err))
+	}
 	render(){
 		let trendingProjects = this.trendingProjects()
 		let recentProjects = this.recentProjects()
@@ -152,7 +165,14 @@ function mapDispatchToProps(dispatch) {
     },
     Projects(results){
     	dispatch({ type: 'FETCH_HOME_PROJECTS', payload: results })
-    }
+		},
+		addVote(obj){
+			console.log('THE PROPS FUNC', obj)
+			dispatch({ type: 'ADD_VOTE', payload: obj})
+		},
+		deleteVote(obj){
+			dispatch({ type: 'DELETE_VOTE', payload: obj})
+		}
   }
 }
 

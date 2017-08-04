@@ -84,7 +84,7 @@ function getProjects(req, res, next){
 
   Projects.findAll({
   include: [
-    { model: Votes }
+    { model: Votes },
   ]})
   .then(projects => res.status(200).json({ status: 'success', message: 'Projects Gotten', projects: projects }))
   .catch(err => res.send(err))
@@ -139,10 +139,11 @@ function addVote(req, res, next){
 function deleteVote(req, res, next){
   Votes.destroy({
       where: {
-        userId: req.params.userId
+        userId: req.params.userId,
+        projectId: req.params.projectId
       }
   })
-    .then(success => console.log('Unvoted Up', sucess))
+    .then(success => console.log('Unvoted Up', success))
     .catch(err => console.log(err))
 }
 
