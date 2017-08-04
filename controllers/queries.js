@@ -149,7 +149,7 @@ function deleteVote(req, res, next){
 
 
 function createProjectDB(req, res, next){
-  Project.sync({ force: true}).then(() => {
+  Projects.sync({ force: true}).then(() => {
     return Projects.create({
       Name: req.body.name,
       Description: req.body.description,
