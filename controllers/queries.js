@@ -163,6 +163,18 @@ function createProjectDB(req, res, next){
     .catch(err => res.send(err))
 }
 
+function createVoteDB(req, res, next){
+  Votes.sync({ force: true}).then(() =>{
+     return Votes.create({
+      projectId: req.body.projectId,
+      userName: req.body.userName,
+      userId: req.body.userId
+  })})
+    .then(vote => console.log('up voted', vote))
+    .catch(err => console.log(err))
+
+}
+
 module.exports = {
   getAllUsers: getAllUsers,
   // getSingleUser: getSingleUser,
@@ -174,6 +186,7 @@ module.exports = {
   addVote: addVote,
   deleteVote: deleteVote,
   createDBProjects: createProjectDB,
+  createVoteDB: createVoteDB,
   // updateUser: updateUser,
   // removeUser: removeUser
   editProject: editProject,
