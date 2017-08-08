@@ -89,7 +89,7 @@ class Welcome extends Component{
 	                    <a>
 												<i className="user icon"></i>
 												{ 
-													project.votes.some(vote => vote.userId === this.props.user.userId) ? <button className="buttonVote" onClick={this.deleteVote.bind(this, ({projectId: project.projectId, userId: this.props.user.userId, userName: this.props.user.firstName}))}><i className="thumbs down icon"></i></button> : <button className="buttonVote" onClick={this.vote.bind(this, ({projectId: project.projectId, userId: this.props.user.userId, userName: this.props.user.firstName}))}><i className="thumbs up icon"></i></button>													
+												this.props.user  ?	project.votes.some(vote => vote.userId === this.props.user.userId) ? <button className="buttonVote" onClick={this.deleteVote.bind(this, ({projectId: project.projectId, userId: this.props.user.userId, userName: this.props.user.firstName}))}><i className="thumbs down icon"></i></button> : <button className="buttonVote" onClick={this.vote.bind(this, ({projectId: project.projectId, userId: this.props.user.userId, userName: this.props.user.firstName}))}><i className="thumbs up icon"></i></button>	: ''												
 												}
 												<p>{project.votes.length / 100 }% votes</p>
 	                      {/*this.props.user !== null && project.userId !== this.props.user.userId ? <button className="ui blue button" >Join</button> : '22 Friends'*/}
