@@ -38,7 +38,7 @@ function createUser(req, res, next) {
   User.findOne({where: { email: req.body.email}})
   .then((user) => {
     if(user){
-      return res.status(422).json({ error: 'Email Already in use'})
+      return res.sendStatus(422).json({ error: 'Email Already in use'})
     }
     return User.create({
       firstName: req.body.firstName,
@@ -48,7 +48,7 @@ function createUser(req, res, next) {
       function: req.body.function
     })
   })
-  .then(user => res.status(200).json({ status: 'success', message: 'Inserted one user', token: tokenForUser(user), user: user}))
+  .then(user => res.sendStatus(200).json({ status: 'success', message: 'Inserted one user', token: tokenForUser(user), user: user}))
   //.catch(err =>res.send({error: 'Email Already in use'}))
 }
 
@@ -62,7 +62,7 @@ function createProject(req, res, next){
       Goals: req.body.goals,
       Deadline: req.body.deadline
     })
-    .then(project => res.status(200).json({ status: 'success', message: 'Inserted one project', project: project }))
+    .then(project => res.sendStatus(200).json({ status: 'success', message: 'Inserted one project', project: project }))
     .catch(err => res.send(err))
 }
 
@@ -86,7 +86,7 @@ function getProjects(req, res, next){
   include: [
     { model: Votes },
   ]})
-  .then(projects => res.status(200).json({ status: 'success', message: 'Projects Gotten', projects: projects }))
+  .then(projects => res.sendStatus(200).json({ status: 'success', message: 'Projects Gotten', projects: projects }))
   .catch(err => res.send(err))
 }
 
@@ -159,7 +159,7 @@ function createProjectDB(req, res, next){
       Goals: req.body.goals,
       Deadline: req.body.deadline
     })})
-    .then(project => res.status(200).json({ status: 'success', message: 'Inserted one project and db created', project: project }))
+    .then(project => res.sendStatus(200).json({ status: 'success', message: 'Inserted one project and db created', project: project }))
     .catch(err => res.send(err))
 }
 
