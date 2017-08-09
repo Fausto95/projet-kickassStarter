@@ -69,7 +69,7 @@ class Welcome extends Component{
   recentProjects(){
     	if(this.props.projects){
 				let projects = this.props.projects
-				let voteButton
+				// let voteButton
 	      return <div className="cards">{
 	      	projects
 	      	.filter(project => new Date(project.createdAt).setHours(0, 0, 0, 0) > new Date('2017-07-10T19:54:55.200Z').setHours(0, 0, 0, 0) && new Date(project.createdAt).setHours(0, 0, 0, 0) <= new Date().setHours(0,0,0,0))
@@ -159,7 +159,7 @@ function carousel() {
 		}
     setTimeout(carousel, 2000); 
 }
-const ROOT_URL = 'http://localhost:3003'
+// const ROOT_URL = 'http://localhost:3003'
 
 function mapDispatchToProps(dispatch) {
   return {

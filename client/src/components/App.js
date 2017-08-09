@@ -3,7 +3,7 @@ import '../stylesheet/App.css';
 import '../stylesheet/Header.css';
 import '../stylesheet/Dashboard.css';
 import Header from './header'
-import Footer from './footer'
+// import Footer from './footer'
 
 class App extends Component {
   render() {

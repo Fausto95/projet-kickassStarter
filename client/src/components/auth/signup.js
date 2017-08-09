@@ -113,7 +113,7 @@ class SignUp extends Component{
 	}
 }
 
-const ROOT_URL = 'http://localhost:3003'
+// const ROOT_URL = 'http://localhost:3003'
 
 function mapDispatchToProps(dispatch) {
   return {
