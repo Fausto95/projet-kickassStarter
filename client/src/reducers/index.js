@@ -16,10 +16,7 @@ const token = localStorage.getItem('token')
 
 if(token){
 	//let user = JSON.parse(localStorage.getItem('user'))
-
 	store.dispatch({ type: 'AUTH_USER' /*, payload: 'user'*/})
 }
-
-
 
 export default store

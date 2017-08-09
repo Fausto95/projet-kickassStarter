@@ -69,7 +69,7 @@ class ModalEdit extends Component {
     axios.post(`/editproject/${e}`, obj)
       .then(response => {
         this.props.editProject(e, response.data)
-        swal('Nice!', 'Project Add', 'success')
+        swal('Nice!', 'Project Modified', 'success')
       })
       .catch(err => console.log('NOT POSTED' , err))
   }
