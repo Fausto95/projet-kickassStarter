@@ -31,7 +31,7 @@ class SignIn extends Component{
     renderAlert(){
         if(this.props.errorMessage){
             return (
-                <div className="ui red basic button">
+                <div className="ui red basic label">
                     <strong>Ooops </strong>{this.props.errorMessage}
                 </div>
                 )
@@ -52,6 +52,7 @@ class SignIn extends Component{
                             <input name="password" type="password" onChange={this.handleInputChange} placeholder="Password" />
                         </div>
                     {this.renderAlert()}
+                    <br/>
                     <button className="ui primary button" action="submit">Sign In</button>
                 </form>
             </div>

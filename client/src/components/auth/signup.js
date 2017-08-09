@@ -48,7 +48,7 @@ class SignUp extends Component{
     renderAlert(){
         if(this.state.passwordMatch){
             return (
-                <div className="ui red basic button">
+                <div className="ui red basic label">
                     <strong>Ooops </strong>Passwords Dont Match
                 </div>
                 )
@@ -58,7 +58,7 @@ class SignUp extends Component{
     renderAlertError(){
         if(this.props.errorMessage){
             return (
-                <div className="alert alert-danger">
+                <div className="ui red basic label">
                     <strong>Ooops </strong>{this.props.errorMessage}
                 </div>
                 )
@@ -92,7 +92,7 @@ class SignUp extends Component{
                     </div>  
 
                     {this.renderAlert()}
-
+                    <br/>
 
                     <label> Confirm Password </label>
                     <div className="ui input focus">
