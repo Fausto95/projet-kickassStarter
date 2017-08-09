@@ -30,8 +30,8 @@ class Dashboard extends Component{
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, delete it!',
         cancelButtonText: 'No, cancel!',
-        confirmButtonClass: 'btn btn-success',
-        cancelButtonClass: 'btn btn-danger',
+        confirmButtonClass: 'ui blue button',
+        cancelButtonClass: 'ui red button',
         buttonsStyling: false
       }).then(function () {
         axios.delete(`/deleteproject/${e}`)
