@@ -132,8 +132,8 @@ function addVote(req, res, next){
       userName: req.body.userName,
       userId: req.body.userId
   })
-    .then(vote => console.log('up voted', vote))
-    .catch(err => console.log(err))
+    .then(vote => res.send(vote))
+    .catch(err => res.send(err))
 }
 
 function deleteVote(req, res, next){
@@ -143,8 +143,8 @@ function deleteVote(req, res, next){
         projectId: req.params.projectId
       }
   })
-    .then(success => console.log('Unvoted Up', success))
-    .catch(err => console.log(err))
+    .then(success => res.send(success))
+    .catch(err => res.send(err))
 }
 
 
@@ -170,8 +170,8 @@ function createVoteDB(req, res, next){
       userName: req.body.userName,
       userId: req.body.userId
   })})
-    .then(vote => console.log('up voted', vote))
-    .catch(err => console.log(err))
+    .then(vote => res.send(vote))
+    .catch(err => res.send(err))
 
 }
 
