@@ -131,6 +131,9 @@ and (max-device-width : 736px) {
   text-align: center;
   font-size: 4em;
   }
+  .footer-Handler{
+    width: 70%;
+  }
  }
 
 @media only screen 
@@ -175,7 +178,10 @@ and (max-device-width : 732px) {
   }
   .slide{
 		display: none;
-	}
+  }
+  .footer-Handler{
+    width: 70%;
+  }
  }
 
 
@@ -265,7 +271,10 @@ and (max-device-width : 1024px) {
   }
   .slide{
 		display: none;
-	}
+  }
+  .footer-Handler{
+    width: 70%;
+  }
  }
 
  @media only screen 
@@ -306,7 +315,10 @@ and (max-device-width : 359px) {
   }
   .slide{
 		display: none;
-	}
+  }
+  .footer-Handler{
+    width: 70%;
+  }
  }
 
 @media only screen 
@@ -347,6 +359,9 @@ and (max-device-width : 776px) {
   }
   .slide{
 		display: none;
-	}
+  }
+  .footer-Handler{
+    width: 70%;
+  }
  }
 
