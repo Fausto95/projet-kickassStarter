@@ -173,6 +173,9 @@ and (max-device-width : 732px) {
   text-align: center;
   font-size: 3em;
   }
+  .slide{
+		display: none;
+	}
  }
 
 
@@ -216,6 +219,9 @@ and (max-device-width : 640px) {
   text-align: center;
   font-size: 2em;
   }
+  .slide{
+		display: none;
+	}
  }
 
 @media only screen 
@@ -254,6 +260,9 @@ and (max-device-width : 1024px) {
     h1{
     text-align: center;
   }
+  .slide{
+		display: none;
+	}
  }
 
  @media only screen 
@@ -292,6 +301,9 @@ and (max-device-width : 359px) {
     h1{
     text-align: center;
   }
+  .slide{
+		display: none;
+	}
  }
 
 @media only screen 
@@ -330,5 +342,8 @@ and (max-device-width : 776px) {
   h1{
     text-align: center;
   }
+  .slide{
+		display: none;
+	}
  }
 
