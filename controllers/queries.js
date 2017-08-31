@@ -10,6 +10,15 @@ const local      = 'postgres://localhost:5432/'
 const prod       =  process.env.DATABASE_URL
 const sequelize  = new Sequelize(process.env.NODE_ENV === 'staging' ? prod : local)
 
+
+// Initiate all assio right here ......
+Projects.hasMany(Votes, { foreignKey: 'projectId'})
+Votes.belongsTo(Projects, { foreignKey: 'projectId'})
+
+User.hasMany(Projects, { foreignKey: 'userId'})
+Projects.belongsTo(User, { foreignKey: 'userId'})
+
+
 // TOKEN
 function tokenForUser(user){
     const timestamp = new Date().getTime()
@@ -79,8 +88,7 @@ function deleteProject(req, res, next){
 }
 
 function getProjects(req, res, next){
-  Projects.hasMany(Votes, { foreignKey: 'projectId'})
-  Votes.belongsTo(Projects, { foreignKey: 'projectId'})
+
 
   Projects.findAll({
   include: [
@@ -91,8 +99,7 @@ function getProjects(req, res, next){
 }
 
 function getUserProjects(req, res, next){
-  User.hasMany(Projects, { foreignKey: 'userId'})
-  Projects.belongsTo(User, { foreignKey: 'userId'})
+
   User.find({
   where:{
     userId: req.params.userId

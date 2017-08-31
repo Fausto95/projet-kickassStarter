@@ -17,7 +17,6 @@ class ModalEdit extends Component {
       Goals: this.props.Goals,
       Deadline: this.props.Deadline,
       modal: false
-
     }
   }
 
@@ -44,12 +43,22 @@ class ModalEdit extends Component {
     const ACCESS_TOKEN = 'TxXQs2_z27AAAAAAAAAAEXUwkv2g2isWmRYnC7BWPubzGbp3-TUkYY23RlBfTg0M'
     const dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
     const file = this.state.image;
-    dbx.filesUpload({path: '/' + file.name, contents: file})
+    dbx.filesAlphaUpload({path: '/' + file.name, contents: file})
       .then(response => {
-        //console.log('the response ', response);
+        console.log('the response ', response);
+        dbx.sharingCreateSharedLink({path: response.path_lower})
+        .then((response) => {
+          console.log('the response url',response.url);
+          this.setState({
+            imageLink: response.url
+          })
+        })
+        .catch((error) => {
+          console.error('error of the shared link',error);
+        });
       })
-      .catch(function(error) {
-        //console.error(error);
+      .catch((error) => {
+        console.error('error of the alpha upload',error);
       });
     return false;
   }
