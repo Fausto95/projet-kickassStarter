@@ -73,22 +73,22 @@ class SignUp extends Component{
                 <form className="signup-form" onSubmit={this.handleFormSubmit}>
                     <label> First Name </label>
                     <div className="ui input focus">
-                        <input name="firstName" type="text" onChange={this.handleInputChange}/>
+                        <input name="firstName" type="text" onChange={this.handleInputChange} placeholder="First Name"/>
                     </div>
 
                     <label> Last Name </label> 
                     <div className="ui input focus">
-                        <input name="lastName" type="text" onChange={this.handleInputChange} />
+                        <input name="lastName" type="text" onChange={this.handleInputChange} placeholder="Last Name"/>
                     </div>  
 
                     <label> Email </label>
                     <div className="ui input focus">
-                        <input name="email" type="email" onChange={this.handleInputChange}/>
+                        <input name="email" type="email" onChange={this.handleInputChange} placeholder="Email"/>
                     </div>  
 
                     <label> Password </label>
                     <div className="ui input focus">
-                        <input name="password" type="password" onChange={this.handleInputChange} />
+                        <input name="password" type="password" onChange={this.handleInputChange} placeholder="Password"/>
                     </div>  
 
                     {this.renderAlert()}
@@ -96,17 +96,18 @@ class SignUp extends Component{
 
                     <label> Confirm Password </label>
                     <div className="ui input focus">
-                        <input name="confirmPassword" type="password" onChange={this.handleInputChange} />
+                        <input name="confirmPassword" type="password" onChange={this.handleInputChange} placeholder="Confirm Password"/>
                     </div>                     
 
-                    <label> Function </label>
+                    <label> Role </label>
                     <div className="ui input focus">
-                        <input name="role" type="text" onChange={this.handleInputChange} />
+                        <input name="role" type="text" onChange={this.handleInputChange} placeholder="Role" />
                     </div> 
 
                     {this.renderAlertError()}
                     <br/>
                     <button className="ui primary button" action="submit">Sign Up</button>
+                    <br/>
                 </form>
             </div>
 		)
