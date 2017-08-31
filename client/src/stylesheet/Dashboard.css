@@ -221,7 +221,10 @@ and (max-device-width : 640px) {
   }
   .slide{
 		display: none;
-	}
+  }
+  .footer-Handler{
+    width: 70%;
+  }
  }
 
 @media only screen 
