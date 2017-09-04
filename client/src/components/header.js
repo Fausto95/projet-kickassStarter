@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
+import DropDownMenu from './dropDownMenu'
 
 class Header extends Component{
 
@@ -38,6 +39,9 @@ class Header extends Component{
                 <div className="navbar">
                 <Link to='/' className="navItem">Home</Link>
                     {this.renderLinks()}
+                    <div className="DDM">
+                        <DropDownMenu authenticated={this.props.authenticated} user={this.props.user} />
+                    </div>
                 </div>
             </div>
         )
