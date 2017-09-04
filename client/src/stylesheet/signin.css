@@ -1,4 +1,4 @@
-.signin-Handler{
+.signin-Handler {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -6,36 +6,30 @@
 	margin-top: 7em;
 }
 
-.signin-form{
+.signin-form {
 	display: flex;
 	flex-direction: column;
 	width: 40em;
 }
+
 .signin-form div {
 	margin-bottom: 0.50em;
 }
 
-
-@media only screen 
-and (min-device-width : 401px) 
-and (max-device-width : 736px) 
-and (orientation : portrait) {
-	.signin-form{
+@media only screen and (min-device-width: 401px) and (max-device-width: 736px) and (orientation: portrait) {
+	.signin-form {
 		width: 30em;
 	}
-	.signup-form{
+	.signup-form {
 		width: 30em;
-	} 
+	}
 }
 
-@media only screen 
-and (min-device-width : 100px) 
-and (max-device-width : 400px) 
-and (orientation : portrait) {
-	.signin-form{
+@media only screen and (min-device-width: 100px) and (max-device-width: 400px) and (orientation: portrait) {
+	.signin-form {
 		width: 20em;
-	}	
-	.signup-form{
+	}
+	.signup-form {
 		width: 20em;
-	} 
+	}
 }

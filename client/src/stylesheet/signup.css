@@ -1,4 +1,4 @@
-.signup-Handler{
+.signup-Handler {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -6,11 +6,12 @@
 	margin-top: 7em;
 }
 
-.signup-form{
+.signup-form {
 	display: flex;
 	flex-direction: column;
 	width: 40em;
 }
+
 .signup-form div {
 	margin-bottom: 0.50em;
 }

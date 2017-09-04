@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 
 
 const DropDownMenu = props => (
-  <Dropdown text='Menu' floating   className='icon'>
+  <Dropdown icon='bars' text='' floating   className='icon'>
     { props.authenticated && props.user !== undefined && props.user !== null ?
     <Dropdown.Menu className='left'>
         <Dropdown.Item>
