@@ -149,6 +149,7 @@ hr {
   }
   .DDM {
     display: inline;
+    cursor: hand;
   }
   .DropText a {
     color: black;
@@ -408,6 +409,10 @@ hr {
   }
   .imageProfile {
     display: none
+  }
+  .cardsHandler {
+    margin-left: 0.10em;
+    margin-bottom: 8em;
   }
   .respModal {
     display: block;
