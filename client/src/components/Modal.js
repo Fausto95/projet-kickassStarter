@@ -12,9 +12,9 @@ class ModalAdd extends Component {
       Name: '',
       Description: '',
       imageLink: 'https://www.bus-stac.fr/var/site/storage/images/4/0/2/2/2204-1-eng-GB/B.png',
-      Pledged: 0,
-      Goals: 0,
-      Deadline: 0,
+      Pledged: 1000,
+      Goals: 400,
+      Deadline: '',
       modal: false
 
     }
@@ -55,6 +55,12 @@ class ModalAdd extends Component {
 
   submitProject = (e) => {
     e.preventDefault();
+    let required = ['Name', 'Description', 'Deadline']
+    let isValide = true
+    required.forEach(item => {
+        if (this.state[item] === '') isValide = false
+    })
+    if (!isValide) return swal('Must!', 'fill all inputs', 'error')
     axios.post(`/createproject`, {
       name: this.state.Name,
       description: this.state.Description,
