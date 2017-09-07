@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
 
 const store  = createStore(
     rootReducer,
-    process.env.NODE_ENV === 'staging' ? 'n' : window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
 const token = localStorage.getItem('token')
