@@ -40,27 +40,15 @@ class ModalEdit extends Component {
   }
 
   uploadFile = () => {
-    const ACCESS_TOKEN = 'TxXQs2_z27AAAAAAAAAAEXUwkv2g2isWmRYnC7BWPubzGbp3-TUkYY23RlBfTg0M'
-    const dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
-    const file = this.state.image;
-    dbx.filesAlphaUpload({path: '/' + file.name, contents: file})
+    const formData = new FormData()
+    formData.append('img', this.state.image)
+    axios.post('/post-image', formData)
       .then(response => {
-        console.log('the response ', response);
-        dbx.sharingCreateSharedLink({path: response.path_lower})
-        .then((response) => {
-          console.log('the response url',response.url);
-          this.setState({
-            imageLink: response.url
-          })
+        this.setState({
+          imageLink: response.data.result.url
         })
-        .catch((error) => {
-          console.error('error of the shared link',error);
-        });
       })
-      .catch((error) => {
-        console.error('error of the alpha upload',error);
-      });
-    return false;
+      .catch(err => swal('Oops...', 'Something went wrong!', 'error')) 
   }
 
   submitProject (e) {

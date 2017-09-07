@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "cd client && npm install && npm run build"
   },
-    "engines": {
+  "engines": {
     "node": "8.1.4",
     "npm": "5.3.0"
   },
@@ -20,8 +20,12 @@
     "bcrypt-nodejs": "0.0.3",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
+    "busboy-body-parser": "^0.3.0",
+    "cloudinary": "^1.9.0",
     "cors": "^2.8.3",
     "express": "^4.15.3",
+    "express-formidable": "^1.0.0",
+    "formidable": "^1.1.1",
     "jwt-simple": "^0.5.1",
     "morgan": "^1.8.2",
     "passport": "^0.3.2",

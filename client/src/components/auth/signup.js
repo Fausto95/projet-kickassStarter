@@ -131,7 +131,8 @@ function mapDispatchToProps(dispatch) {
             })
             .catch(response =>{
             	const err = Object.assign({}, response)
-            	//console.log(err.response)
+                // console.log(err.response)
+                swal('Oops...', `${err.response.data.error}`, 'error')
               	dispatch(authError(err.response.data.error))
             })
     }

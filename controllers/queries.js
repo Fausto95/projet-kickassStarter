@@ -5,7 +5,7 @@ const jwt        = require('jwt-simple')
 const config     = require('../config/config')
 const User       = require('../models/users')
 const Projects   = require('../models/projects')
-const Votes    = require('../models/votes')
+const Votes      = require('../models/votes')
 const local      = 'postgres://localhost:5432/'
 const prod       =  process.env.DATABASE_URL
 const sequelize  = new Sequelize(process.env.NODE_ENV === 'staging' ? prod : local)
@@ -58,7 +58,7 @@ function createUser(req, res, next) {
     })
   })
   .then(user => res.status(200).json({ status: 'success', message: 'Inserted one user', token: tokenForUser(user), user: user}))
-  //.catch(err =>res.send({error: 'Email Already in use'}))
+  .catch(err =>res.send({error: 'Email Already in use'}))
 }
 
 function createProject(req, res, next){

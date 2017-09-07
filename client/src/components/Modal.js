@@ -11,7 +11,7 @@ class ModalAdd extends Component {
     this.state = {
       Name: '',
       Description: '',
-      imageLink: 'https://www.bus-stac.fr/var/site/storage/images/4/0/2/2/2204-1-eng-GB/B.png',
+      imageLink: '',
       Pledged: 1000,
       Goals: 400,
       Deadline: '',
@@ -40,17 +40,15 @@ class ModalAdd extends Component {
   }
 
   uploadFile = () => {
-    const ACCESS_TOKEN = 'TxXQs2_z27AAAAAAAAAAEXUwkv2g2isWmRYnC7BWPubzGbp3-TUkYY23RlBfTg0M'
-    const dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
-    const file = this.state.image;
-    dbx.filesUpload({path: '/' + file.name, contents: file})
+    const formData = new FormData()
+    formData.append('img', this.state.image)
+    axios.post('/post-image', formData)
       .then(response => {
-        console.log('the response ', response);
+        this.setState({
+          imageLink: response.data.result.url
+        })
       })
-      .catch(function(error) {
-        console.error(error);
-      });
-    return false;
+      .catch(err => swal('Oops...', 'Something went wrong!', 'error'))    
   }
 
   submitProject = (e) => {
